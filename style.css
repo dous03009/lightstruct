@@ -1,0 +1,42 @@
+
+body {
+  margin: 0;
+  font-family: monospace;
+  background: #f7f7f7;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 60px);
+}
+textarea, pre {
+  width: 50%;
+  height: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: monospace;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+textarea { background: #ffffff; }
+pre { background: #efefef; overflow-y: auto; }
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  background: #e0e0e0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  z-index: 10;
+}
+button {
+  font-size: 18px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
