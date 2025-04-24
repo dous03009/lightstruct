@@ -3,32 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LightStruct v0.3</title>
+  <title>LightStruct Private v0.6.1</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <script>
+    const password = prompt("请输入访问密码：");
+    if (password !== "191919") {
+      document.body.innerHTML = "<h1>🚫 无权访问</h1>";
+      throw new Error("Unauthorized");
+    }
+  </script>
+
+  <div class="topbar">
+    <select id="draftSelector" onchange="switchDraft()" title="切换草稿 🗂️">
+      <option value="draft_1">1</option>
+      <option value="draft_2">2</option>
+      <option value="draft_3">3</option>
+      <option value="draft_4">4</option>
+      <option value="draft_5">5</option>
+      <option value="draft_6">6</option>
+      <option value="draft_7">7</option>
+      <option value="draft_8">8</option>
+      <option value="draft_9">9</option>
+    </select>
+    <button onclick="toggleTheme()" title="夜间模式 🌙">🌙</button>
+    <button onclick="clearCurrent()" title="清空当前草稿 🧹">🧹</button>
+  </div>
+
   <div class="container">
-    <textarea id="input" placeholder="打字即可开始结构图..."></textarea>
+    <textarea id="input" placeholder="结构内容..."></textarea>
     <pre id="preview"></pre>
   </div>
+
   <div class="toolbar">
-    <button onclick="insert('└─')" title="子项起点">└─</button>
-    <button onclick="insert('├─')" title="并行子项">├─</button>
-    <button onclick="insert('→')" title="横向流程">→</button>
-    <button onclick="insert('↓')" title="向下流程">↓</button>
-    <button onclick="insert('↑')" title="回溯/跳回">↑</button>
-    <button onclick="insert('↔')" title="双向关系">↔</button>
-    <button onclick="insert('⇒')" title="强逻辑推进">⇒</button>
-    <button onclick="insert('✅')" title="已完成">✅</button>
-    <button onclick="insert('🟢')" title="进行中">🟢</button>
-    <button onclick="insert('🟡')" title="等待中">🟡</button>
-    <button onclick="insert('🔴')" title="阻塞/卡住">🔴</button>
-    <button onclick="insert('()')" title="圆括号">()</button>
-    <button onclick="insert('[]')" title="方括号">[]</button>
-    <button onclick="insert('{}')" title="花括号">{{}}</button>
-    <button onclick="insert('【】')" title="书名号/模块标签">【】</button>
-    <button onclick="exportText()" title="导出 TXT">📤 导出 TXT</button>
+    <button onclick="insert('└─')">└─</button>
+    <button onclick="insert('├─')">├─</button>
+    <button onclick="insert('→')">→</button>
+    <button onclick="insert('↓')">↓</button>
+    <button onclick="insert('↑')">↑</button>
+    <button onclick="insert('↔')">↔</button>
+    <button onclick="insert('⇒')">⇒</button>
+    <button onclick="insert('✅')">✅</button>
+    <button onclick="insert('🟢')">🟢</button>
+    <button onclick="insert('🟡')">🟡</button>
+    <button onclick="insert('🔴')">🔴</button>
+    <button onclick="insert('()')">()</button>
+    <button onclick="insert('[]')">[]</button>
+    <button onclick="insert('{}')">{{}}</button>
+    <button onclick="insert('【】')">【】</button>
+    <button onclick="exportText()">📤</button>
   </div>
+
   <script src="main.js"></script>
 </body>
 </html>
